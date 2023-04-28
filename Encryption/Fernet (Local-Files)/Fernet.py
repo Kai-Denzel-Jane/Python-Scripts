@@ -10,7 +10,6 @@ KEY = os.getenv("KEY")
 PASSWORD = os.getenv("PASSWORD")
 KEY_BACKUP = os.getenv("KEY_BACKUP")
 
-
 # Asks users for their password
 def pass_check():
 
