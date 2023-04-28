@@ -35,6 +35,7 @@ def welcome():
     print("6. Set password (Advanced Users only!!!)")
     print("7. Reset Password and Key")
     print("8. Manage Keys")
+    print("9. Store Text")
 
     choice = int(input("Input number: "))
     return choice
