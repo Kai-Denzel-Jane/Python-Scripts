@@ -155,6 +155,30 @@ def managekeys():
         case 0:
             welcome()
 
+def storeencryptions():
+
+    encrypted_text = input("Input the encrypted text you want to save: ")
+    key_to_encrypt = input("Input the key used to encrypt the text: ")
+
+    cipher = Fernet(key_to_encrypt)
+
+    decrypted_text = str(cipher.decrypt(encrypted_text))
+    if ENCRYPTED1 and DECRYPTED1 and ENCRYPTION_KEY1 == '':
+        dotenv.set_key(".env", "ENCRYPTED1", encrypted_text)
+        dotenv.set_key(".env", "DECRYPTED1", decrypted_text)
+        dotenv.set_key(".env", "ENCRYPTION_KEY1", key_to_encrypt)
+    elif ENCRYPTED2 and DECRYPTED1 and ENCRYPTION_KEY2 == '':
+        dotenv.set_key(".env", "ENCRYPTED2", encrypted_text)
+        dotenv.set_key(".env", "DECRYPTED2", decrypted_text)
+        dotenv.set_key(".env", "ENCRYPTION_KEY2", key_to_encrypt)
+    else:
+        dotenv.set_key(".env", "ENCRYPTED3", encrypted_text)
+        dotenv.set_key(".env", "DECRYPTED3", decrypted_text)
+        dotenv.set_key(".env", "ENCRYPTION_KEY3", key_to_encrypt)
+
+
+
+
 # Prompts user if they would like to end the script 
 def end():
 
@@ -163,7 +187,7 @@ def end():
         exit()
 
 if KEY == '':
-    print("Either this is your first time running the script or YOU changed you key to '',no worries we are generating a new key for you.")
+    print("Either this is your first time running the script or YOU changed your key to '',no worries we are generating a new key for you.")
     print("Default password is Alpine you should change it after")
     key_gen()
 
@@ -176,6 +200,16 @@ while True:
     KEY = os.getenv("KEY")
     PASSWORD = os.getenv("PASSWORD")
     KEY_BACKUP = os.getenv("KEY_BACKUP")
+    ENCRYPTED1 = os.getenv("ENCRYPTED1")
+    ENCRYPTED2 = os.getenv("ENCRYPTED2")   
+    ENCRYPTED3 = os.getenv("ENCRYPTED3")
+    ENCRYPTION_KEY1= os.getenv("ENCRYPTION_KEY1")
+    ENCRYPTION_KEY2= os.getenv("ENCRYPTION_KEY2")
+    ENCRYPTION_KEY3= os.getenv("ENCRYPTION_KEY3")
+    DECRYPTED1 = os.getenv("DECRYPTED1")
+    DECRYPTED2 = os.getenv("DECRYPTED2")
+    DECRYPTED3 = os.getenv("DECRYPTED3")
+
 
     choice = welcome()
     
@@ -199,5 +233,7 @@ while True:
             reset()
         case 8:
             managekeys()
+        case 9:
+            storeencryptions()
 
     end()

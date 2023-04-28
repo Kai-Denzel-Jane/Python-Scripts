@@ -1,0 +1,1 @@
+Make sure to clear .env KEY before committing (any pull requests with changes to .env KEY value will be denied until changed)
