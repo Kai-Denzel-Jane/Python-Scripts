@@ -176,9 +176,6 @@ def storeencryptions():
         dotenv.set_key(".env", "DECRYPTED3", decrypted_text)
         dotenv.set_key(".env", "ENCRYPTION_KEY3", key_to_encrypt)
 
-
-
-
 # Prompts user if they would like to end the script 
 def end():
 
@@ -209,7 +206,6 @@ while True:
     DECRYPTED1 = os.getenv("DECRYPTED1")
     DECRYPTED2 = os.getenv("DECRYPTED2")
     DECRYPTED3 = os.getenv("DECRYPTED3")
-
 
     choice = welcome()
     
