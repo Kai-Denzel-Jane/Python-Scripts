@@ -167,7 +167,7 @@ def storeencryptions():
         dotenv.set_key(".env", "ENCRYPTED1", encrypted_text)
         dotenv.set_key(".env", "DECRYPTED1", decrypted_text)
         dotenv.set_key(".env", "ENCRYPTION_KEY1", key_to_encrypt)
-    elif ENCRYPTED2 and DECRYPTED1 and ENCRYPTION_KEY2 == '':
+    elif ENCRYPTED2 and DECRYPTED2 and ENCRYPTION_KEY2 == '':
         dotenv.set_key(".env", "ENCRYPTED2", encrypted_text)
         dotenv.set_key(".env", "DECRYPTED2", decrypted_text)
         dotenv.set_key(".env", "ENCRYPTION_KEY2", key_to_encrypt)
