@@ -7,6 +7,8 @@ Getting Started:
 
 Dependencies:   
     
+    python-3.10 or later
+
     pip install cryptography
     pip install python-dotenv
 
