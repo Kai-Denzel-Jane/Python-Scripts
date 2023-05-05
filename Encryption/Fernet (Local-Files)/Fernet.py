@@ -31,7 +31,7 @@ def welcome():
     print("3. Generate new key")
     print("4. Input key and use to encrypt / decrypt")
     print("5. Print out your current key")
-    print("6. Set password (Advanced Users only!!!)")
+    print("6. Set password")
     print("7. Reset Password and Key")
     print("8. Manage Keys")
     print("9. Store Text")
@@ -62,7 +62,6 @@ def decrypt_func():
     else:
         pass_check()
 
-
 # Key generation
 def key_gen():
 
@@ -87,9 +86,6 @@ def custom_key():
     else:
         pass_check()
 
-
-    
-
 # Prints out key, you can also read it directly from "thekey.key" file
 def key_print():
     
@@ -109,8 +105,6 @@ def set_pass():
 
     dotenv.set_key(".env", "PASSWORD", password)
     exit()
-
-    
 
 # Resets the password and generates a new key
 def reset():
@@ -171,10 +165,26 @@ def storeencryptions():
         dotenv.set_key(".env", "ENCRYPTED2", encrypted_text)
         dotenv.set_key(".env", "DECRYPTED2", decrypted_text)
         dotenv.set_key(".env", "ENCRYPTION_KEY2", key_to_encrypt)
-    else:
+    elif ENCRYPTED3 and DECRYPTED3 and ENCRYPTION_KEY3 == '':
         dotenv.set_key(".env", "ENCRYPTED3", encrypted_text)
         dotenv.set_key(".env", "DECRYPTED3", decrypted_text)
         dotenv.set_key(".env", "ENCRYPTION_KEY3", key_to_encrypt)
+    else:
+        delete = input("Which would you like to delete: 1, 2 or 3: ")
+
+        match delete:
+            case 1:
+                dotenv.set_key(".env", "ENCRYPTED1", encrypted_text)
+                dotenv.set_key(".env", "DECRYPTED1", decrypted_text)
+                dotenv.set_key(".env", "ENCRYPTION_KEY1", key_to_encrypt)
+            case 2:
+                dotenv.set_key(".env", "ENCRYPTED2", encrypted_text)
+                dotenv.set_key(".env", "DECRYPTED2", decrypted_text)
+                dotenv.set_key(".env", "ENCRYPTION_KEY2", key_to_encrypt)
+            case 3:
+                dotenv.set_key(".env", "ENCRYPTED3", encrypted_text)
+                dotenv.set_key(".env", "DECRYPTED3", decrypted_text)
+                dotenv.set_key(".env", "ENCRYPTION_KEY3", key_to_encrypt)
 
 # Prompts user if they would like to end the script 
 def end():
